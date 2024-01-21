@@ -174,7 +174,7 @@
           description: create QR codes for free (Logo, T-Shirt, vCard, EPS).
         - title: ezgif
           url: https://ezgif.com
-          logo: ezgif.png
+          logo: Ezgif.png
           description: simple online GIF maker and toolset for basic animated GIF editing.
         - title: Android 9 patch
           url: http://inloop.github.io/shadow4android/
