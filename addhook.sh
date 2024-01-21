@@ -29,9 +29,9 @@ DEBUG=true
 # log 文件位置
 LOG_FILE="${ROOT_PATH}/logs/${REPO_NAME}_\$(date '+%Y%m%d_%H%M%S').log"
 # 函数
-payloadExit() { echo "错误: \$@" 1>&2 ; exit 1; }
+payloadExit() { echo "错误: \$*" 1>&2 ; exit 1; }
 isDebug() {
-  [ "\$debug" = "true" ] && echo -e "Debug:\n \$@"
+  [ "\$DEBUG" = "true" ] && echo -e "Debug:\n \$*"
 }
 # 验证
 payload=\$1
@@ -41,10 +41,11 @@ isDebug "已收到 payload:\n \$payload"
 ############# 这里是真正要执行的脚本 ################
 # 删除原有日志文件
 cd "${ROOT_PATH}/logs" || return
-COUNT_LOGS=$(ls -l | grep -c "${REPO_NAME}*") && echo "${COUNT_LOGS}"
-if [ "${COUNT_LOGS}" > 0 ] ; then
-  echo "❌ 存在日志，先删除："
-  rm -rf "${REPO_NAME}*" || return
+COUNT_LOGS=\$(ls -l | grep -c "${REPO_NAME}*")
+echo "\$COUNT_LOGS"
+if [ "\$COUNT_LOGS" -gt 0 ]; then
+    echo "❌ 存在日志，先删除："
+    rm -rf "${REPO_NAME}*" || return
 fi
 
 # 调用部署脚本
