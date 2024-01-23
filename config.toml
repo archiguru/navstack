@@ -1,5 +1,5 @@
 # 基本配置
-baseURL               = "https://archiguru.gitee.io/NavStack"
+baseURL               = "https://archiguru.gitee.io/nav"
 languageCode          = "zh-CN"
 title                 = "NavStack"
 theme                 = "NavStack"
